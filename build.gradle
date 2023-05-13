@@ -1,0 +1,29 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot'
+	id 'io.spring.dependency-management'
+	id 'eclips'
+}
+
+
+group = 'com.example.springbootProject'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+
+repositories {
+	mavenCentral()
+	jcenter()
+}
+dependencies {
+	classpath('org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}')
+}
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
