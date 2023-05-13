@@ -1,8 +1,7 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot'
-	id 'io.spring.dependency-management'
-	id 'eclips'
+	id 'org.springframework.boot' version '2.7.11'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
 
@@ -15,13 +14,25 @@ repositories {
 	mavenCentral()
 	jcenter()
 }
-dependencies {
-	classpath('org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}')
-}
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+test {
+	useJUnitPlatform()
+}
+
+dependencies {
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	implementation('org.springframework.boot:spring-boot-starter-mustache')
+
+	// lombok
+	implementation('org.projectlombok:lombok')
+	annotationProcessor('org.projectlombok:lombok')
+	testImplementation('org.projectlombok:lombok')
+	testAnnotationProcessor('org.projectlombok:lombok')
+
+	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+	implementation("org.mariadb.jdbc:mariadb-java-client")
+	implementation('com.h2database:h2')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
 tasks.named('test') {
