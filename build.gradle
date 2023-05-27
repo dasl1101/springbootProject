@@ -34,6 +34,9 @@ dependencies {
 	implementation('com.h2database:h2')
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
 
+	//스프링시큐리티
+	implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
+
 
 }
 
